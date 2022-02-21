@@ -1,7 +1,7 @@
 package com.ruoyi.admin.service.impl;
 
 import com.ruoyi.admin.domain.SysOperLog;
-import com.ruoyi.admin.mapper.SysOperLogMapper;
+import com.ruoyi.admin.repository.SysOperLogMapper;
 import com.ruoyi.admin.service.ISysOperLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

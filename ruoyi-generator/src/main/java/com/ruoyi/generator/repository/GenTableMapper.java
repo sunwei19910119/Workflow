@@ -1,4 +1,4 @@
-package com.ruoyi.generator.mapper;
+package com.ruoyi.generator.repository;
 
 import java.util.List;
 import com.ruoyi.generator.domain.GenTable;

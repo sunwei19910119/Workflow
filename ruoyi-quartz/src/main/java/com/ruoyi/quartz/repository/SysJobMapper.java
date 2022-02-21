@@ -1,4 +1,4 @@
-package com.ruoyi.quartz.mapper;
+package com.ruoyi.quartz.repository;
 
 import java.util.List;
 import com.ruoyi.quartz.domain.SysJob;
