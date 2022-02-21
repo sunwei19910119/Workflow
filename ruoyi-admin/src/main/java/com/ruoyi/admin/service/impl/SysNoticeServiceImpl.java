@@ -1,7 +1,7 @@
 package com.ruoyi.admin.service.impl;
 
 import com.ruoyi.admin.domain.SysNotice;
-import com.ruoyi.admin.mapper.SysNoticeMapper;
+import com.ruoyi.admin.repository.SysNoticeMapper;
 import com.ruoyi.admin.service.ISysNoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

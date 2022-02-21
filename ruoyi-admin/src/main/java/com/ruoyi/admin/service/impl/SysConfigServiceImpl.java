@@ -9,7 +9,7 @@ import com.ruoyi.common.enums.DataSourceType;
 import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.StringUtils;
 import com.ruoyi.admin.domain.SysConfig;
-import com.ruoyi.admin.mapper.SysConfigMapper;
+import com.ruoyi.admin.repository.SysConfigMapper;
 import com.ruoyi.admin.service.ISysConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.ruoyi.admin.mapper;
+package com.ruoyi.admin.repository;
 
 import com.ruoyi.admin.domain.SysUserRole;
 import org.apache.ibatis.annotations.Param;
