@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * 
  * @author ruoyi
  */
-@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class,org.activiti.spring.boot.SecurityAutoConfiguration.class })
+@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
 // 指定要扫描的Mapper类的包的路径
 @MapperScan("com.ruoyi.**.mapper")
 public class RuoYiApplication
