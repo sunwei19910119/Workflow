@@ -1,6 +1,6 @@
 package com.ruoyi.admin.controller.monitor;
 
-import com.ruoyi.config.web.domain.Server;
+import com.ruoyi.admin.domain.Server;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

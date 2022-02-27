@@ -3,8 +3,8 @@ package com.ruoyi.admin.controller.system;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ruoyi.config.web.service.SysPermissionService;
-import com.ruoyi.config.web.service.TokenService;
+import com.ruoyi.admin.security.service.SysPermissionService;
+import com.ruoyi.admin.security.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;

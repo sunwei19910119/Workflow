@@ -3,7 +3,7 @@ package com.ruoyi.admin.controller.common;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ruoyi.config.framework.ServerConfig;
+import com.ruoyi.framework.config.ServerConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

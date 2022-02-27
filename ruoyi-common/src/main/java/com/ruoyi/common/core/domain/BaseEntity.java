@@ -38,15 +38,6 @@ public class BaseEntity implements Serializable
     /** 请求参数 */
     private Map<String, Object> params;
 
-//    public String getSearchValue()
-//    {
-//        return searchValue;
-//    }
-//
-//    public void setSearchValue(String searchValue)
-//    {
-//        this.searchValue = searchValue;
-//    }
 
     public String getCreateBy()
     {

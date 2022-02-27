@@ -1,6 +1,6 @@
 package com.ruoyi.admin.controller.system;
 
-import com.ruoyi.config.web.service.SysRegisterService;
+import com.ruoyi.admin.security.service.SysRegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
