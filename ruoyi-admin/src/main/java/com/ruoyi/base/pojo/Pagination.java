@@ -1,4 +1,4 @@
-package com.ruoyi.base.vo;
+package com.ruoyi.base.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
@@ -6,12 +6,14 @@ import lombok.Data;
 import java.util.List;
 
 @Data 
-public class Pagination extends Page{
+public class Pagination{
     private long pageSize=20;
     private long maxPageSize = 50;
     private String sort="desc";
     private String sidx="";
     private long currentPage=1;
+    private String keyword="";
+
 
     @JsonIgnore
     private long total;

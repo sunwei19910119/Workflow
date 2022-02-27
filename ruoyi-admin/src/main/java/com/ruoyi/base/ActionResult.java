@@ -1,8 +1,8 @@
 package com.ruoyi.base;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.ruoyi.base.vo.PageListVO;
-import com.ruoyi.base.vo.PaginationVO;
+import com.ruoyi.base.pojo.PageListVO;
+import com.ruoyi.base.pojo.PaginationVO;
 import lombok.Data;
 
 import java.util.List;

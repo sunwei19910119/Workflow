@@ -1,4 +1,4 @@
-package com.ruoyi.base.vo;
+package com.ruoyi.base.pojo;
 
 import lombok.Data;
 
