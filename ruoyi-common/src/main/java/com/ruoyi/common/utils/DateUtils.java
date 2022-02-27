@@ -3,6 +3,10 @@ package com.ruoyi.common.utils;
 import java.lang.management.ManagementFactory;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Date;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
@@ -151,5 +155,14 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils
         // 计算差多少秒//输出结果
         // long sec = diff % nd % nh % nm / ns;
         return day + "天" + hour + "小时" + min + "分钟";
+    }
+
+
+    public static Date localDateTimeToDate(LocalDateTime dateTime) {
+        ZoneId zoneId = ZoneId.systemDefault();
+        ZonedDateTime zonedDateTime = dateTime.atZone(zoneId);
+        Instant instant = zonedDateTime.toInstant();
+        Date date = Date.from(instant);
+        return date;
     }
 }

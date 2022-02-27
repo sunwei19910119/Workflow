@@ -2,7 +2,7 @@ package com.ruoyi.admin.service.impl;
 
 import com.ruoyi.common.core.domain.entity.SysDictData;
 import com.ruoyi.common.utils.DictUtils;
-import com.ruoyi.admin.repository.SysDictDataMapper;
+import com.ruoyi.admin.mapper.SysDictDataMapper;
 import com.ruoyi.admin.service.ISysDictDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

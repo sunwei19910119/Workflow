@@ -3,8 +3,8 @@ package com.ruoyi.admin.controller.system;
 import java.util.List;
 import java.util.Set;
 
-import com.ruoyi.config.web.service.SysLoginService;
-import com.ruoyi.config.web.service.SysPermissionService;
+import com.ruoyi.admin.security.service.SysLoginService;
+import com.ruoyi.admin.security.service.SysPermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

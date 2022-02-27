@@ -17,6 +17,7 @@
         <module>ruoyi-admin</module>
         <module>ruoyi-generator</module>
         <module>ruoyi-quartz</module>
+        <module>ruoyi-framework</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -31,8 +32,7 @@
         <bitwalker.version>1.21</bitwalker.version>
         <swagger.version>3.0.0</swagger.version>
         <kaptcha.version>2.3.2</kaptcha.version>
-        <mybatis-spring-boot.version>2.2.0</mybatis-spring-boot.version>
-        <pagehelper.boot.version>1.4.0</pagehelper.boot.version>
+        <pagehelper.version>5.3.0</pagehelper.version>
         <fastjson.version>1.2.79</fastjson.version>
         <oshi.version>5.8.6</oshi.version>
         <jna.version>5.10.0</jna.version>
@@ -42,6 +42,9 @@
         <poi.version>4.1.2</poi.version>
         <velocity.version>2.3</velocity.version>
         <jwt.version>0.9.1</jwt.version>
+        <lombok.version>1.18.22</lombok.version>
+        <hutool.version>5.7.21</hutool.version>
+        <mybatis-plus.version>3.5.1</mybatis-plus.version>
     </properties>
 	
     <!-- 依赖声明 -->
@@ -72,17 +75,17 @@
             </dependency>
 
             <!-- SpringBoot集成mybatis框架 -->
-            <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis-spring-boot.version}</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.mybatis.spring.boot</groupId>-->
+<!--                <artifactId>mybatis-spring-boot-starter</artifactId>-->
+<!--                <version>${mybatis-spring-boot.version}</version>-->
+<!--            </dependency>-->
 
             <!-- pagehelper 分页插件 -->
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper-spring-boot-starter</artifactId>
-                <version>${pagehelper.boot.version}</version>
+                <artifactId>pagehelper</artifactId>
+                <version>${pagehelper.version}</version>
             </dependency>
 
             <!-- 获取系统信息 -->
@@ -194,6 +197,31 @@
                 <version>${ruoyi.version}</version>
             </dependency>
 
+            <!-- 核心模块-->
+            <dependency>
+                <groupId>com.ruoyi</groupId>
+                <artifactId>ruoyi-framework</artifactId>
+                <version>${ruoyi.version}</version>
+            </dependency>
+
+            <!-- 工具类 -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <!-- mybatis-plus 增强CRUD -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

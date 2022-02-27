@@ -12,7 +12,7 @@ import com.ruoyi.common.utils.spring.SpringUtils;
 import com.ruoyi.admin.domain.SysPost;
 import com.ruoyi.admin.domain.SysUserPost;
 import com.ruoyi.admin.domain.SysUserRole;
-import com.ruoyi.admin.repository.*;
+import com.ruoyi.admin.mapper.*;
 import com.ruoyi.admin.service.ISysConfigService;
 import com.ruoyi.admin.service.ISysUserService;
 import org.slf4j.Logger;

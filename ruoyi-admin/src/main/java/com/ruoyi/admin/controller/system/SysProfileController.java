@@ -2,7 +2,7 @@ package com.ruoyi.admin.controller.system;
 
 import java.io.IOException;
 
-import com.ruoyi.config.web.service.TokenService;
+import com.ruoyi.admin.security.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
