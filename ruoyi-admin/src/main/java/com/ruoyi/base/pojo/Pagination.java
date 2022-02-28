@@ -9,10 +9,7 @@ import java.util.List;
 public class Pagination{
     private long pageSize=20;
     private long maxPageSize = 50;
-    private String sort="desc";
-    private String sidx="";
     private long currentPage=1;
-    private String keyword="";
 
 
     @JsonIgnore
