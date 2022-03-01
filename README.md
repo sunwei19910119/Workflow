@@ -4,7 +4,7 @@
 
 ## 平台简介
 
-基于若依后台管理系统二次开发。
+基于若依分离版后台管理系统二次开发,集成Activiti7实现BPM工作流
 
 * 前端采用Vue、Element UI。
 * 后端采用Spring Boot、Spring Security、Redis & Jwt。
@@ -58,7 +58,11 @@
 ## 文件结构
 ### 后端结构
 ```
-com.ruoyi     
+com.ruoyi 
+├── ruoyi-admin         // 框架核心
+│     └── admin         // 系统代码
+│       └── api          // 封装了管理后台的部分业务代码供其他模块调用
+│     └── bpm         // 工作流    
 ├── common            // 工具类
 │       └── annotation                    // 自定义注解
 │       └── config                        // 全局配置
@@ -67,12 +71,12 @@ com.ruoyi
 │       └── enums                         // 通用枚举
 │       └── exception                     // 通用异常
 │       └── filter                        // 过滤器处理
+│       └── mybatis                        // mybatis-plus的封装
+│       └── pojo                            //响应和请求POJO类
 │       └── utils                         // 通用类处理
-├── ruoyi-admin       // 框架核心
-│     └── admin         // 系统代码
-│     └── config        // 核心配置
+├── framework         // 框架核心
 │       └── aspectj                       // 注解实现
-│       └── framework                     // 系统配置
+│       └── config                        // 系统配置
 │       └── datasource                    // 数据权限
 │       └── interceptor                   // 拦截器
 │       └── manager                       // 异步处理

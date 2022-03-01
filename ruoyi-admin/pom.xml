@@ -86,6 +86,10 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+        </dependency>
         <!-- 工作流相关 -->
         <dependency>
             <groupId>org.activiti</groupId>
@@ -115,7 +119,11 @@
             <artifactId>activiti-image-generator</artifactId>
             <version>7.1.0.M6</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>transmittable-thread-local</artifactId> <!-- 解决 ThreadLocal 父子线程的传值问题 -->
+            <version>2.12.2</version>
+        </dependency>
     </dependencies>
 
 

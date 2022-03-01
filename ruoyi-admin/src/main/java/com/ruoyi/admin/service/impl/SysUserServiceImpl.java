@@ -25,6 +25,7 @@ import org.springframework.util.CollectionUtils;
 import javax.validation.Validator;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -404,7 +405,7 @@ public class SysUserServiceImpl implements ISysUserService
      */
     public void insertUserPost(SysUser user)
     {
-        Long[] posts = user.getPostIds();
+        Set<Long> posts = user.getPostIds();
         if (StringUtils.isNotNull(posts))
         {
             // 新增用户与岗位管理

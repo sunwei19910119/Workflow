@@ -3,6 +3,7 @@ package com.ruoyi.admin.service;
 import com.ruoyi.common.core.domain.entity.SysRole;
 import com.ruoyi.admin.domain.SysUserRole;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 

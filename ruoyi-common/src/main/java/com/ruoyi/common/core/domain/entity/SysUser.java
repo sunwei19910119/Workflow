@@ -2,6 +2,7 @@ package com.ruoyi.common.core.domain.entity;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import javax.validation.constraints.*;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -91,7 +92,7 @@ public class SysUser extends BaseEntity
     private Long[] roleIds;
 
     /** 岗位组 */
-    private Long[] postIds;
+    private Set<Long> postIds;
 
     /** 角色ID */
     private Long roleId;
@@ -296,12 +297,12 @@ public class SysUser extends BaseEntity
         this.roleIds = roleIds;
     }
 
-    public Long[] getPostIds()
+    public Set<Long> getPostIds()
     {
         return postIds;
     }
 
-    public void setPostIds(Long[] postIds)
+    public void setPostIds(Set<Long> postIds)
     {
         this.postIds = postIds;
     }
