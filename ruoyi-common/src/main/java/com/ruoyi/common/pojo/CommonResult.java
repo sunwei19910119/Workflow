@@ -1,8 +1,8 @@
 package com.ruoyi.common.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.ruoyi.common.constant.HttpStatus;
 import com.ruoyi.common.exception.ErrorCode;
-import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.exception.enums.GlobalErrorCodeConstants;
 import lombok.Data;
 import org.springframework.util.Assert;
@@ -60,12 +60,40 @@ public class CommonResult<T> implements Serializable {
         return error(errorCode.getCode(), errorCode.getMsg());
     }
 
-    public static <T> CommonResult<T> success(T data) {
+
+    public static <T> CommonResult<T> success() {
+        return CommonResult.success("操作成功");
+    }
+
+    public static <T> CommonResult<T> success(String msg) {
         CommonResult<T> result = new CommonResult<>();
-        result.code = GlobalErrorCodeConstants.SUCCESS.getCode();
-        result.data = data;
-        result.msg = "";
+        result.code = HttpStatus.SUCCESS;
+        result.msg = msg;
         return result;
+    }
+
+    public static <T> CommonResult<T> success(T data) {
+        return CommonResult.success("操作成功",data);
+    }
+
+    public static <T> CommonResult<T> success(String msg, T data) {
+        CommonResult<T> result = new CommonResult<>();
+        result.code = HttpStatus.SUCCESS;
+        result.msg = msg;
+        result.data = data;
+        return result;
+    }
+
+
+    public static <T> CommonResult<T> error(String msg) {
+        CommonResult<T> result = new CommonResult<>();
+        result.code = HttpStatus.BAD_REQUEST;
+        result.msg = msg;
+        return result;
+    }
+
+    public static <T> CommonResult<T> error() {
+        return CommonResult.error("操作失败");
     }
 
     public static boolean isSuccess(Integer code) {
@@ -81,22 +109,4 @@ public class CommonResult<T> implements Serializable {
     public boolean isError() {
         return !isSuccess();
     }
-
-    // ========= 和 Exception 异常体系集成 =========
-
-    /**
-     * 判断是否有异常。如果有，则抛出 {@link ServiceException} 异常
-     */
-    public void checkError() throws ServiceException {
-        if (isSuccess()) {
-            return;
-        }
-        // 业务异常
-        throw new ServiceException(code, msg);
-    }
-
-    public static <T> CommonResult<T> error(ServiceException serviceException) {
-        return error(serviceException.getCode(), serviceException.getMessage());
-    }
-
 }

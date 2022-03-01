@@ -2,18 +2,19 @@ package com.ruoyi.admin.controller.common;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 import com.ruoyi.common.config.RuoYiConfig;
+import com.ruoyi.common.pojo.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.FastByteArrayOutputStream;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.google.code.kaptcha.Producer;
 import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.core.domain.AjaxResult;
 import com.ruoyi.common.core.redis.RedisCache;
 import com.ruoyi.common.utils.sign.Base64;
 import com.ruoyi.common.utils.uuid.IdUtils;
@@ -42,14 +43,14 @@ public class CaptchaController
      * 生成验证码
      */
     @GetMapping("/captchaImage")
-    public AjaxResult getCode(HttpServletResponse response) throws IOException
+    public CommonResult getCode(HttpServletResponse response) throws IOException
     {
-        AjaxResult ajax = AjaxResult.success();
+        HashMap<String,Object> result = new HashMap<>();
         boolean captchaOnOff = configService.selectCaptchaOnOff();
-        ajax.put("captchaOnOff", captchaOnOff);
+        result.put("captchaOnOff", captchaOnOff);
         if (!captchaOnOff)
         {
-            return ajax;
+            return CommonResult.success(result);
         }
 
         // 保存验证码信息
@@ -83,11 +84,11 @@ public class CaptchaController
         }
         catch (IOException e)
         {
-            return AjaxResult.error(e.getMessage());
+            return CommonResult.error(e.getMessage());
         }
 
-        ajax.put("uuid", uuid);
-        ajax.put("img", Base64.encode(os.toByteArray()));
-        return ajax;
+        result.put("uuid", uuid);
+        result.put("img", Base64.encode(os.toByteArray()));
+        return CommonResult.success(result);
     }
 }

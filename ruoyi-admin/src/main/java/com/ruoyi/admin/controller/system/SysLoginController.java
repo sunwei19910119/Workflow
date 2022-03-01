@@ -1,5 +1,6 @@
 package com.ruoyi.admin.controller.system;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.core.domain.AjaxResult;
+import com.ruoyi.common.pojo.CommonResult;
 import com.ruoyi.common.core.domain.entity.SysMenu;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.core.domain.model.LoginBody;
@@ -42,14 +43,14 @@ public class SysLoginController
      * @return 结果
      */
     @PostMapping("/login")
-    public AjaxResult login(@RequestBody LoginBody loginBody)
+    public CommonResult login(@RequestBody LoginBody loginBody)
     {
-        AjaxResult ajax = AjaxResult.success();
+        HashMap<String,Object> result = new HashMap<>();
         // 生成令牌
         String token = loginService.login(loginBody.getUsername(), loginBody.getPassword(), loginBody.getCode(),
                 loginBody.getUuid());
-        ajax.put(Constants.TOKEN, token);
-        return ajax;
+        result.put(Constants.TOKEN, token);
+        return CommonResult.success(result);
     }
 
     /**
@@ -58,18 +59,18 @@ public class SysLoginController
      * @return 用户信息
      */
     @GetMapping("getInfo")
-    public AjaxResult getInfo()
+    public CommonResult getInfo()
     {
         SysUser user = SecurityUtils.getLoginUser().getUser();
         // 角色集合
         Set<String> roles = permissionService.getRolePermission(user);
         // 权限集合
         Set<String> permissions = permissionService.getMenuPermission(user);
-        AjaxResult ajax = AjaxResult.success();
-        ajax.put("user", user);
-        ajax.put("roles", roles);
-        ajax.put("permissions", permissions);
-        return ajax;
+        HashMap<String,Object> result = new HashMap<>();
+        result.put("user", user);
+        result.put("roles", roles);
+        result.put("permissions", permissions);
+        return CommonResult.success(result);
     }
 
     /**
@@ -78,10 +79,10 @@ public class SysLoginController
      * @return 路由信息
      */
     @GetMapping("getRouters")
-    public AjaxResult getRouters()
+    public CommonResult getRouters()
     {
         Long userId = SecurityUtils.getUserId();
         List<SysMenu> menus = menuService.selectMenuTreeByUserId(userId);
-        return AjaxResult.success(menuService.buildMenus(menus));
+        return CommonResult.success(menuService.buildMenus(menus));
     }
 }

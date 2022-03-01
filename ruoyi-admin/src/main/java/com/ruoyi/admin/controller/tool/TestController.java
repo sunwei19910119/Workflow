@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.ruoyi.common.core.controller.BaseController;
-import com.ruoyi.common.core.domain.AjaxResult;
+import com.ruoyi.common.pojo.CommonResult;
 import com.ruoyi.common.utils.StringUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -40,20 +40,20 @@ public class TestController extends BaseController
 
     @ApiOperation("获取用户列表")
     @GetMapping("/list")
-    public AjaxResult userList()
+    public CommonResult userList()
     {
         List<UserEntity> userList = new ArrayList<UserEntity>(users.values());
-        return AjaxResult.success(userList);
+        return CommonResult.success(userList);
     }
 
     @ApiOperation("获取用户详细")
     @ApiImplicitParam(name = "userId", value = "用户ID", required = true, dataType = "int", paramType = "path", dataTypeClass = Integer.class)
     @GetMapping("/{userId}")
-    public AjaxResult getUser(@PathVariable Integer userId)
+    public CommonResult getUser(@PathVariable Integer userId)
     {
         if (!users.isEmpty() && users.containsKey(userId))
         {
-            return AjaxResult.success(users.get(userId));
+            return CommonResult.success(users.get(userId));
         }
         else
         {
@@ -69,18 +69,18 @@ public class TestController extends BaseController
         @ApiImplicitParam(name = "mobile", value = "用户手机", dataType = "String", dataTypeClass = String.class)
     })
     @PostMapping("/save")
-    public AjaxResult save(UserEntity user)
+    public CommonResult save(UserEntity user)
     {
         if (StringUtils.isNull(user) || StringUtils.isNull(user.getUserId()))
         {
             return error("用户ID不能为空");
         }
-        return AjaxResult.success(users.put(user.getUserId(), user));
+        return CommonResult.success(users.put(user.getUserId(), user));
     }
 
     @ApiOperation("更新用户")
     @PutMapping("/update")
-    public AjaxResult update(@RequestBody UserEntity user)
+    public CommonResult update(@RequestBody UserEntity user)
     {
         if (StringUtils.isNull(user) || StringUtils.isNull(user.getUserId()))
         {
@@ -91,13 +91,13 @@ public class TestController extends BaseController
             return error("用户不存在");
         }
         users.remove(user.getUserId());
-        return AjaxResult.success(users.put(user.getUserId(), user));
+        return CommonResult.success(users.put(user.getUserId(), user));
     }
 
     @ApiOperation("删除用户信息")
     @ApiImplicitParam(name = "userId", value = "用户ID", required = true, dataType = "int", paramType = "path", dataTypeClass = Integer.class)
     @DeleteMapping("/{userId}")
-    public AjaxResult delete(@PathVariable Integer userId)
+    public CommonResult delete(@PathVariable Integer userId)
     {
         if (!users.isEmpty() && users.containsKey(userId))
         {
