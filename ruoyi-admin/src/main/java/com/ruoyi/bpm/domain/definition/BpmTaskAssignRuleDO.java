@@ -1,6 +1,6 @@
 package com.ruoyi.bpm.domain.definition;
 
-import com.ruoyi.bpm.domain.BaseDO;
+import com.ruoyi.common.mybatis.domain.BaseDO;
 import com.ruoyi.common.mybatis.type.JsonLongSetTypeHandler;
 import com.ruoyi.bpm.enums.definition.BpmTaskAssignRuleTypeEnum;
 import com.ruoyi.bpm.enums.definition.BpmTaskRuleScriptEnum;

@@ -1,6 +1,6 @@
 package com.ruoyi.bpm.domain.definition;
 
-import com.ruoyi.bpm.domain.BaseDO;
+import com.ruoyi.common.mybatis.domain.BaseDO;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;

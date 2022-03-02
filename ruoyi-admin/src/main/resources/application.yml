@@ -124,7 +124,14 @@ mybatis-plus:
   # 配置mapper的扫描，找到所有的mapper.xml映射文件
   mapperLocations: classpath*:mapper/**/*Mapper.xml
   # 加载全局的配置文件
-  configLocation: classpath:mybatis/mybatis-config.xml
+#  configLocation: classpath:mybatis/mybatis-config.xml
+  configuration:
+    map-underscore-to-camel-case: true # 虽然默认为 true ，但是还是显示去指定下。
+  global-config:
+    db-config:
+      id-type: AUTO # 自增 ID
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
 
 # PageHelper分页插件
 pagehelper: 

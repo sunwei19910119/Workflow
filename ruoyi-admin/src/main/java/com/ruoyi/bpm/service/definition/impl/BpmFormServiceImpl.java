@@ -39,6 +39,7 @@ public class BpmFormServiceImpl implements BpmFormService {
         this.checkFields(createReqVO.getFields());
         // 插入
         BpmFormDO form = BpmFormConvert.INSTANCE.convert(createReqVO);
+        System.out.println(form);
         formMapper.insert(form);
         // 返回
         return form.getId();

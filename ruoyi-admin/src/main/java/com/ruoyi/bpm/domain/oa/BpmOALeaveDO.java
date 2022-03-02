@@ -1,7 +1,7 @@
 package com.ruoyi.bpm.domain.oa;
 
 
-import com.ruoyi.bpm.domain.BaseDO;
+import com.ruoyi.common.mybatis.domain.BaseDO;
 import com.ruoyi.bpm.enums.task.BpmProcessInstanceResultEnum;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;

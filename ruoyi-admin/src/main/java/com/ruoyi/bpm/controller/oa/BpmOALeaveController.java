@@ -37,14 +37,14 @@ public class BpmOALeaveController {
     private BpmOALeaveService leaveService;
 
     @PostMapping("/create")
-    @PreAuthorize("@ss.hasPermission('bpm:oa-leave:create')")
+    @PreAuthorize("@ss.hasPermi('bpm:oa-leave:create')")
     @ApiOperation("创建请求申请")
     public CommonResult<Long> createLeave(@Valid @RequestBody BpmOALeaveCreateReqVO createReqVO) {
         return success(leaveService.createLeave(getLoginUserId(), createReqVO));
     }
 
     @GetMapping("/get")
-    @PreAuthorize("@ss.hasPermission('bpm:oa-leave:query')")
+    @PreAuthorize("@ss.hasPermi('bpm:oa-leave:query')")
     @ApiOperation("获得请假申请")
     @ApiImplicitParam(name = "id", value = "编号", required = true, example = "1024", dataTypeClass = Long.class)
     public CommonResult<BpmOALeaveRespVO> getLeave(@RequestParam("id") Long id) {
@@ -53,7 +53,7 @@ public class BpmOALeaveController {
     }
 
     @GetMapping("/page")
-    @PreAuthorize("@ss.hasPermission('bpm:oa-leave:query')")
+    @PreAuthorize("@ss.hasPermi('bpm:oa-leave:query')")
     @ApiOperation("获得请假申请分页")
     public CommonResult<PageResult<BpmOALeaveRespVO>> getLeavePage(@Valid BpmOALeavePageReqVO pageVO) {
         PageResult<BpmOALeaveDO> pageResult = leaveService.getLeavePage(getLoginUserId(), pageVO);

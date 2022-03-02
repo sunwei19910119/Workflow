@@ -4,7 +4,7 @@ import com.ruoyi.common.enums.CommonStatusEnum;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.ruoyi.bpm.domain.BaseDO;
+import com.ruoyi.common.mybatis.domain.BaseDO;
 import com.ruoyi.common.mybatis.type.JsonLongSetTypeHandler;
 import lombok.*;
 

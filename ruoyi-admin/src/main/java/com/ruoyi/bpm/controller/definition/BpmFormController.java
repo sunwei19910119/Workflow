@@ -30,14 +30,14 @@ public class BpmFormController {
 
     @PostMapping("/create")
     @ApiOperation("创建动态表单")
-    @PreAuthorize("@ss.hasPermission('bpm:form:create')")
+    @PreAuthorize("@ss.hasPermi('bpm:form:create')")
     public CommonResult<Long> createForm(@Valid @RequestBody BpmFormCreateReqVO createReqVO) {
         return success(formService.createForm(createReqVO));
     }
 
     @PutMapping("/update")
     @ApiOperation("更新动态表单")
-    @PreAuthorize("@ss.hasPermission('bpm:form:update')")
+    @PreAuthorize("@ss.hasPermi('bpm:form:update')")
     public CommonResult<Boolean> updateForm(@Valid @RequestBody BpmFormUpdateReqVO updateReqVO) {
         formService.updateForm(updateReqVO);
         return success(true);
@@ -46,7 +46,7 @@ public class BpmFormController {
     @DeleteMapping("/delete")
     @ApiOperation("删除动态表单")
     @ApiImplicitParam(name = "id", value = "编号", required = true, dataTypeClass = Long.class)
-    @PreAuthorize("@ss.hasPermission('bpm:form:delete')")
+    @PreAuthorize("@ss.hasPermi('bpm:form:delete')")
     public CommonResult<Boolean> deleteForm(@RequestParam("id") Long id) {
         formService.deleteForm(id);
         return success(true);
@@ -55,7 +55,7 @@ public class BpmFormController {
     @GetMapping("/get")
     @ApiOperation("获得动态表单")
     @ApiImplicitParam(name = "id", value = "编号", required = true, example = "1024", dataTypeClass = Long.class)
-    @PreAuthorize("@ss.hasPermission('bpm:form:query')")
+    @PreAuthorize("@ss.hasPermi('bpm:form:query')")
     public CommonResult<BpmFormRespVO> getForm(@RequestParam("id") Long id) {
         BpmFormDO form = formService.getForm(id);
         return success(BpmFormConvert.INSTANCE.convert(form));
@@ -70,7 +70,7 @@ public class BpmFormController {
 
     @GetMapping("/page")
     @ApiOperation("获得动态表单分页")
-    @PreAuthorize("@ss.hasPermission('bpm:form:query')")
+    @PreAuthorize("@ss.hasPermi('bpm:form:query')")
     public CommonResult<PageResult<BpmFormRespVO>> getFormPage(@Valid BpmFormPageReqVO pageVO) {
         PageResult<BpmFormDO> pageResult = formService.getFormPage(pageVO);
         return success(BpmFormConvert.INSTANCE.convertPage(pageResult));

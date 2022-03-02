@@ -1,6 +1,7 @@
 package com.ruoyi.admin.security.util;
 
 import com.ruoyi.common.core.domain.model.LoginUser;
+import com.ruoyi.common.mybatis.util.WebFrameworkUtils;
 import org.springframework.lang.Nullable;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -77,4 +78,29 @@ public class SecurityFrameworkUtils {
         LoginUser loginUser = getLoginUser();
         return loginUser != null ? loginUser.getUserId() : null;
     }
+
+    /**
+     * 设置当前用户
+     *
+     * @param loginUser 登录用户
+     * @param request 请求
+     */
+    public static void setLoginUser(LoginUser loginUser, HttpServletRequest request) {
+        // 创建 Authentication，并设置到上下文
+//        Authentication authentication = buildAuthentication(loginUser, request);
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        // 额外设置到 request 中，用于 ApiAccessLogFilter 可以获取到用户编号；
+        // 原因是，Spring Security 的 Filter 在 ApiAccessLogFilter 后面，在它记录访问日志时，线上上下文已经没有用户编号等信息
+        WebFrameworkUtils.setLoginUserId(request, loginUser.getUserId());
+    }
+
+    private static Authentication buildAuthentication(LoginUser loginUser, HttpServletRequest request) {
+        // 创建 UsernamePasswordAuthenticationToken 对象
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+                loginUser, null, loginUser.getAuthorities());
+        authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+        return authenticationToken;
+    }
+
 }

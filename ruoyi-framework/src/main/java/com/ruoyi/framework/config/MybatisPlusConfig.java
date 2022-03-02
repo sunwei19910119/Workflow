@@ -1,10 +1,12 @@
 package com.ruoyi.framework.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.BlockAttackInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
+import com.ruoyi.common.mybatis.handler.DefaultDBFieldHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -58,5 +60,10 @@ public class MybatisPlusConfig
     public BlockAttackInnerInterceptor blockAttackInnerInterceptor()
     {
         return new BlockAttackInnerInterceptor();
+    }
+
+    @Bean
+    public MetaObjectHandler defaultMetaObjectHandler(){
+        return new DefaultDBFieldHandler(); // 自动填充参数类
     }
 }
