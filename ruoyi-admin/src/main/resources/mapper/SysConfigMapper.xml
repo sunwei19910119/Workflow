@@ -15,7 +15,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="updateBy"      column="update_by"      />
         <result property="updateTime"    column="update_time"    />
     </resultMap>
-    
+
     <sql id="selectConfigVo">
         select config_id, config_name, config_key, config_value, config_type, create_by, create_time, update_by, update_time, remark 
 		from sys_config
