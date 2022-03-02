@@ -1,5 +1,7 @@
 package com.ruoyi.bpm.controller.definition.vo.form;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.ruoyi.common.utils.DateUtils;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -28,6 +30,7 @@ public class BpmFormRespVO extends BpmFormBaseVO {
     private List<String> fields;
 
     @ApiModelProperty(value = "创建时间", required = true)
+    @JsonFormat(pattern = DateUtils.FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND, timezone = DateUtils.TIME_ZONE_DEFAULT)
     private Date createTime;
 
 }

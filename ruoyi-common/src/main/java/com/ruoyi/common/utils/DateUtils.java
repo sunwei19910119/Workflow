@@ -17,6 +17,12 @@ import org.apache.commons.lang3.time.DateFormatUtils;
  */
 public class DateUtils extends org.apache.commons.lang3.time.DateUtils
 {
+
+    /**
+     * 时区 - 默认
+     */
+    public static final String TIME_ZONE_DEFAULT = "GMT+8";
+
     public static String YYYY = "yyyy";
 
     public static String YYYY_MM = "yyyy-MM";

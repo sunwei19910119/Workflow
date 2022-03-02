@@ -50,4 +50,9 @@ public class BpmFormDO extends BaseDO{
     @TableField(typeHandler = JacksonTypeHandler.class)
     private List<String> fields;
 
+    /**
+     * 备注
+     */
+    private String remark;
+
 }
