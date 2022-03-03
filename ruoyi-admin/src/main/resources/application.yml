@@ -105,6 +105,7 @@ spring:
     history-level: full
     #校验流程文件，默认校验resources下的processes文件夹里的流程文件
     check-process-definitions: false
+    deployment-mode:  never-fail # 关闭 SpringAutoDeployment
 
 # token配置
 token:
