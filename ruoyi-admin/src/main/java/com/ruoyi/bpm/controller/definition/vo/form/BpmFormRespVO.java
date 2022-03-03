@@ -30,7 +30,6 @@ public class BpmFormRespVO extends BpmFormBaseVO {
     private List<String> fields;
 
     @ApiModelProperty(value = "创建时间", required = true)
-    @JsonFormat(pattern = DateUtils.FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND, timezone = DateUtils.TIME_ZONE_DEFAULT)
     private Date createTime;
 
 }
