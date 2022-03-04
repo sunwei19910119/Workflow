@@ -16,18 +16,21 @@ public interface DeptConvert {
     DeptConvert INSTANCE = Mappers.getMapper(DeptConvert.class);
 
     @Mappings({
-            @Mapping(source = "deptId",target = "id")
+            @Mapping(source = "deptId",target = "id"),
+            @Mapping(source = "deptName",target = "name")
     })
     DeptRespDTO convert03(SysDept bean);
 
 
     @Mappings({
-            @Mapping(source = "deptId",target = "id")
+            @Mapping(source = "deptId",target = "id"),
+            @Mapping(source = "deptName",target = "name")
     })
     List<DeptRespDTO> convertList03(List<SysDept> list);
 
     @Mappings({
-            @Mapping(source = "deptId",target = "id")
+            @Mapping(source = "deptId",target = "id"),
+            @Mapping(source = "deptName",target = "name")
     })
     Map<Long, DeptRespDTO> convertMap(Map<Long, SysDept> map);
 

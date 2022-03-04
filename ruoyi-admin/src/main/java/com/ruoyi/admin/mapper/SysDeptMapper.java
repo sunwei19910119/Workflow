@@ -3,6 +3,7 @@ package com.ruoyi.admin.mapper;
 import com.ruoyi.common.core.domain.entity.SysDept;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -116,4 +117,6 @@ public interface SysDeptMapper
      * @return 结果
      */
     public int deleteDeptById(Long deptId);
+
+    List<SysDept> selectBatchIds(Collection<Long> ids);
 }

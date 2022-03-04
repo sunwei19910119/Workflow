@@ -5,6 +5,8 @@ import java.util.List;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+
+import com.baomidou.mybatisplus.annotation.TableId;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.core.domain.BaseEntity;
@@ -29,6 +31,11 @@ public class SysDept extends BaseEntity
 
     /** 部门名称 */
     private String deptName;
+
+    /**
+     * 负责人的用户编号
+     */
+    private Long leaderUserId;
 
     /** 显示顺序 */
     private String orderNum;
@@ -198,5 +205,13 @@ public class SysDept extends BaseEntity
             .append("updateBy", getUpdateBy())
             .append("updateTime", getUpdateTime())
             .toString();
+    }
+
+    public Long getLeaderUserId() {
+        return leaderUserId;
+    }
+
+    public void setLeaderUserId(Long leaderUserId) {
+        this.leaderUserId = leaderUserId;
     }
 }

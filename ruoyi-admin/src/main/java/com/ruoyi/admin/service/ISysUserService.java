@@ -1,8 +1,11 @@
 package com.ruoyi.admin.service;
 
+import com.ruoyi.admin.domain.SysUserPost;
 import com.ruoyi.common.core.domain.entity.SysUser;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 /**
  * 用户 业务层
@@ -204,4 +207,16 @@ public interface ISysUserService
      * @return 结果
      */
     public String importUser(List<SysUser> userList, Boolean isUpdateSupport, String operName);
+
+
+    public List<SysUser> selectListByDeptIds(Collection<Long> deptIds);
+
+    //根据岗位ID，查询符合条件的用户列表
+    public List<SysUser> selectListByPostIds(Collection<Long> postIds);
+
+
+    public List<SysUser> selectBatchIds(Collection<Long> userIds);
+
+
+
 }

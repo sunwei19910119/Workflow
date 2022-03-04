@@ -3,6 +3,7 @@ package com.ruoyi.admin.service;
 import com.ruoyi.common.core.domain.TreeSelect;
 import com.ruoyi.common.core.domain.entity.SysDept;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -114,4 +115,6 @@ public interface ISysDeptService
      * @return 结果
      */
     public int deleteDeptById(Long deptId);
+
+    List<SysDept> selectBatchIds(Collection<Long> ids);
 }

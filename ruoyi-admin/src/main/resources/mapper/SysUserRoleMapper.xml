@@ -42,7 +42,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             </foreach> 
 	</delete>
 
-	<select id="selectListByRoleIds" resultType="Integer">
-		select * from sys_user_role where role_id=#{roleId}
+	<select id="selectListByRoleIds" parameterType="Long" resultMap="SysUserRoleResult">
+		select * from sys_user_role where role_id in
+		<foreach collection="collection" item="roleId"  open="(" separator="," close=")">
+			#{roleId}
+		</foreach>
 	</select>
 </mapper> 

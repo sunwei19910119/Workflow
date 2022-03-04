@@ -3,7 +3,6 @@ package com.ruoyi.admin.api.service.impl;
 import cn.hutool.core.collection.CollUtil;
 import com.ruoyi.admin.api.convert.DeptConvert;
 import com.ruoyi.admin.api.domain.DeptRespDTO;
-import com.ruoyi.admin.api.mapper.DeptMapper;
 import com.ruoyi.admin.api.service.DeptApi;
 import com.ruoyi.admin.service.ISysDeptService;
 import com.ruoyi.common.core.domain.entity.SysDept;
@@ -25,8 +24,6 @@ public class DeptApiImpl implements DeptApi {
 
     @Resource
     private ISysDeptService deptService;
-    @Resource
-    private DeptMapper deptMapper;
 
     @Override
     public DeptRespDTO getDept(Long id) {
@@ -36,7 +33,10 @@ public class DeptApiImpl implements DeptApi {
 
     @Override
     public List<DeptRespDTO> getDepts(Collection<Long> ids) {
-        List<SysDept> depts = deptMapper.selectBatchIds(ids);
+        if (CollUtil.isEmpty(ids)) {
+            return Collections.emptyList();
+        }
+        List<SysDept> depts = deptService.selectBatchIds(ids);
         return DeptConvert.INSTANCE.convertList03(depts);
     }
 
@@ -46,7 +46,7 @@ public class DeptApiImpl implements DeptApi {
             return;
         }
         // 获得科室信息
-        List<SysDept> depts = deptMapper.selectBatchIds(ids);
+        List<SysDept> depts = deptService.selectBatchIds(ids);
         Map<Long, SysDept> deptMap = CollectionUtils.convertMap(depts, SysDept::getDeptId);
         // 校验
         ids.forEach(id -> {
@@ -65,7 +65,7 @@ public class DeptApiImpl implements DeptApi {
         if (CollUtil.isEmpty(ids)) {
             return Collections.emptyMap();
         }
-        List<SysDept> list = deptMapper.selectBatchIds(ids);
+        List<SysDept> list = deptService.selectBatchIds(ids);
         Map<Long, SysDept> depts = CollectionUtils.convertMap(list, SysDept::getDeptId);
         return DeptConvert.INSTANCE.convertMap(depts);
     }

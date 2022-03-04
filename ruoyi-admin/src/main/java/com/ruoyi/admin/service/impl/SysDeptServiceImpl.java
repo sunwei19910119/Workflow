@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -326,5 +327,12 @@ public class SysDeptServiceImpl implements ISysDeptService
     private boolean hasChild(List<SysDept> list, SysDept t)
     {
         return getChildList(list, t).size() > 0;
+    }
+
+
+
+    @Override
+    public List<SysDept> selectBatchIds(Collection<Long> ids) {
+        return deptMapper.selectBatchIds(ids);
     }
 }

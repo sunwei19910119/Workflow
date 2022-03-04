@@ -119,4 +119,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </foreach> 
  	</delete>
 
+	<select id="selectBatchIds" parameterType="Long" resultMap="SysPostResult">
+		select * from sys_post where post_id in
+		<foreach collection="collection" item="postId"  open="(" separator="," close=")">
+			#{postId}
+		</foreach>
+	</select>
 </mapper> 

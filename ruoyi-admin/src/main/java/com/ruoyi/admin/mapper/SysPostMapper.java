@@ -2,6 +2,7 @@ package com.ruoyi.admin.mapper;
 
 import com.ruoyi.admin.domain.SysPost;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -97,4 +98,6 @@ public interface SysPostMapper
      * @return 结果
      */
     public SysPost checkPostCodeUnique(String postCode);
+
+    List<SysPost> selectBatchIds(Collection<Long> ids);
 }

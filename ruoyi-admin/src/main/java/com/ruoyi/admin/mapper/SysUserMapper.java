@@ -3,6 +3,7 @@ package com.ruoyi.admin.mapper;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -128,4 +129,15 @@ public interface SysUserMapper
 
 
     List<SysUser> selectUserListByRoleKey(String roleKey);
+
+    /** 根据部门ID集合查询用户列表
+     */
+    List<SysUser> selectListByDeptIds(Collection<Long> deptIds);
+
+
+    List<SysUser> selectListByPostIds(Collection<Long> postIds);
+
+    List<SysUser> selectBatchIds(Collection<Long> userIds);
+
+
 }

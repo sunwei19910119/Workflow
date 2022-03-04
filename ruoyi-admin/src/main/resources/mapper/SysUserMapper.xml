@@ -221,4 +221,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from sys_user where user_id in ( select user_id from sys_user_role where role_id = ( select role_id from sys_role where role_key = #{roleKey} ) )
 								 and del_flag = '0'
 	</select>
+
+	<select id="selectListByDeptIds" parameterType="Long" resultMap="SysUserResult">
+		select * from sys_user where deptId in
+		<foreach collection="collection" item="deptId"  open="(" separator="," close=")">
+			#{deptId}
+		</foreach>
+		and del_flag = '0'
+	</select>
+
+	<select id="selectListByPostIds" parameterType="Long" resultMap="SysUserResult">
+		select sys_user.* from sys_user
+		    left join sys_user_post on sys_user.user_id = sys_user_post.user_id
+		where sys_user_post.post_id in
+		<foreach collection="collection" item="postId"  open="(" separator="," close=")">
+			#{postId}
+		</foreach>
+		and del_flag = '0'
+	</select>
+
+
+	<select id="selectBatchIds" parameterType="Long" resultMap="SysUserResult">
+		select * from sys_user where user_id in
+		<foreach collection="collection" item="userId"  open="(" separator="," close=")">
+			#{userId}
+		</foreach>
+		and del_flag = '0'
+	</select>
+
 </mapper> 

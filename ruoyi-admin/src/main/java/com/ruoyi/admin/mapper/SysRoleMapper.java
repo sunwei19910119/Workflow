@@ -2,6 +2,7 @@ package com.ruoyi.admin.mapper;
 
 import com.ruoyi.common.core.domain.entity.SysRole;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -105,4 +106,6 @@ public interface SysRoleMapper
      * @return 结果
      */
     public int deleteRoleByIds(Long[] roleIds);
+
+    List<SysRole> selectBatchIds(Collection<Long> ids);
 }

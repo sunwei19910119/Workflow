@@ -3,8 +3,8 @@
 <h4 align="center">基于SpringBoot+Vue前后端分离的Java快速开发框架</h4>
 
 ## 平台简介
-
 基于若依分离版后台管理系统二次开发,集成Activiti7实现BPM工作流
+原若依使用MyBatis原生开发，现集成了MyBatis-plus。数据权限注解如果要生效，查询需要使用mybatis的xml文件编写
 
 * 前端采用Vue、Element UI。
 * 后端采用Spring Boot、Spring Security、Redis & Jwt。

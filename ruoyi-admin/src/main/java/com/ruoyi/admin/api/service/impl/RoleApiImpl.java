@@ -1,8 +1,8 @@
 package com.ruoyi.admin.api.service.impl;
 
 import cn.hutool.core.collection.CollUtil;
-import com.ruoyi.admin.api.mapper.RoleMapper;
 import com.ruoyi.admin.api.service.RoleApi;
+import com.ruoyi.admin.mapper.SysRoleMapper;
 import com.ruoyi.admin.service.ISysRoleService;
 import com.ruoyi.common.core.domain.entity.SysRole;
 import com.ruoyi.common.enums.CommonStatusEnum;
@@ -26,11 +26,9 @@ import static com.ruoyi.common.exception.util.ServiceExceptionUtil.exception;
 @Service
 public class RoleApiImpl implements RoleApi {
 
-    @Resource
-    private ISysRoleService roleService;
 
     @Autowired
-    private RoleMapper roleMapper;
+    private SysRoleMapper roleMapper;
 
     @Override
     public void validRoles(Collection<Long> ids) {

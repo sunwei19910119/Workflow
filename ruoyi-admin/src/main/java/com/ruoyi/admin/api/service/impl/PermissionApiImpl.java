@@ -2,7 +2,7 @@ package com.ruoyi.admin.api.service.impl;
 
 import com.ruoyi.admin.api.service.PermissionApi;
 import com.ruoyi.admin.domain.SysUserRole;
-import com.ruoyi.admin.api.mapper.UserRoleMapper;
+import com.ruoyi.admin.mapper.SysUserRoleMapper;
 import com.ruoyi.common.utils.collection.CollectionUtils;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,7 @@ import java.util.Set;
 public class PermissionApiImpl implements PermissionApi {
 
     @Resource
-    private UserRoleMapper userRoleMapper;
+    private SysUserRoleMapper userRoleMapper;
 
     @Override
     public Set<Long> getUserRoleIdListByRoleIds(Collection<Long> roleIds) {

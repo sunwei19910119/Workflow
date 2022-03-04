@@ -17,12 +17,14 @@ public interface UserConvert {
 
 
     @Mappings({
-            @Mapping(source = "userId",target = "id")
+            @Mapping(source = "userId",target = "id"),
+            @Mapping(source = "nickName",target = "nickname")
     })
     AdminUserRespDTO convert4(SysUser bean);
 
     @Mappings({
-            @Mapping(source = "userId",target = "id")
+            @Mapping(source = "userId",target = "id"),
+            @Mapping(source = "nickName",target = "nickname")
     })
     List<AdminUserRespDTO> convertList4(List<SysUser> users);
 

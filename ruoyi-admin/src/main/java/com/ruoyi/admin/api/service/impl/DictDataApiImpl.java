@@ -1,13 +1,9 @@
 package com.ruoyi.admin.api.service.impl;
 
 import cn.hutool.core.collection.CollUtil;
-import com.google.common.collect.ImmutableMap;
-import com.ruoyi.admin.api.mapper.DictDataMapper;
-import com.ruoyi.admin.api.mapper.DictTypeMapper;
 import com.ruoyi.admin.api.service.DictDataApi;
-import com.ruoyi.common.core.domain.entity.SysDept;
+import com.ruoyi.admin.mapper.SysDictDataMapper;
 import com.ruoyi.common.core.domain.entity.SysDictData;
-import com.ruoyi.common.core.domain.entity.SysUser;
 import com.ruoyi.common.enums.CommonStatusEnum;
 import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.collection.CollectionUtils;
@@ -28,17 +24,14 @@ public class DictDataApiImpl implements DictDataApi {
 
 
     @Resource
-    DictTypeMapper dictTypeMapper;
-
-    @Resource
-    DictDataMapper dictDataMapper;
+    SysDictDataMapper dictDataMapper;
 
     @Override
     public void validDictDatas(String dictType, Collection<String> values) {
         if (CollUtil.isEmpty(values)) {
             return;
         }
-        List<SysDictData> list = dictDataMapper.selectByDictType(dictType);
+        List<SysDictData> list = dictDataMapper.selectDictDataByType(dictType);
         Map<Long, SysDictData> dictDataMap = CollectionUtils.convertMap(list, SysDictData::getDictCode);
 
         // 校验

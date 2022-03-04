@@ -2,6 +2,7 @@ package com.ruoyi.admin.mapper;
 
 import com.ruoyi.admin.domain.SysUserPost;
 
+import java.util.Collection;
 import java.util.List;
 
 /**

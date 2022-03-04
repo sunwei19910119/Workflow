@@ -3,7 +3,6 @@ package com.ruoyi.admin.api.service.impl;
 import cn.hutool.core.collection.CollUtil;
 import com.ruoyi.admin.api.convert.UserConvert;
 import com.ruoyi.admin.api.domain.AdminUserRespDTO;
-import com.ruoyi.admin.api.mapper.AdminUserMapper;
 import com.ruoyi.admin.api.service.AdminUserApi;
 import com.ruoyi.admin.service.ISysUserService;
 import com.ruoyi.common.core.domain.entity.SysUser;
@@ -24,9 +23,6 @@ import java.util.*;
 public class AdminUserApiImpl implements AdminUserApi {
 
     @Resource
-    private AdminUserMapper userMapper;
-
-    @Resource
     private ISysUserService userService;
 
     @Override
@@ -40,7 +36,7 @@ public class AdminUserApiImpl implements AdminUserApi {
         if (CollUtil.isEmpty(deptIds)) {
             return Collections.emptyList();
         }
-        List<SysUser> users = userMapper.selectListByDeptIds(deptIds);
+        List<SysUser> users = userService.selectListByDeptIds(deptIds);
         return UserConvert.INSTANCE.convertList4(users);
     }
 
@@ -50,9 +46,8 @@ public class AdminUserApiImpl implements AdminUserApi {
             return Collections.emptyList();
         }
         // 过滤不符合条件的
-        // TODO 芋艿：暂时只能内存过滤。解决方案：1、新建一个关联表；2、基于 where + 函数；3、json 字段，适合 mysql 8+ 版本
-        List<SysUser> users = userMapper.selectList();
-        users.removeIf(user -> !CollUtil.containsAny(user.getPostIds(), postIds));
+        //TODO 待校验
+        List<SysUser> users = userService.selectListByPostIds(postIds);
         return UserConvert.INSTANCE.convertList4(users);
     }
 
@@ -61,7 +56,7 @@ public class AdminUserApiImpl implements AdminUserApi {
         if (CollUtil.isEmpty(ids)) {
             return new HashMap<>();
         }
-        List<SysUser> users = userMapper.selectBatchIds(ids);
+        List<SysUser> users = userService.selectBatchIds(ids);
         Map<Long, SysUser> userMap = CollectionUtils.convertMap( users , SysUser::getUserId);
         return UserConvert.INSTANCE.convertMap4(userMap);
     }
@@ -72,7 +67,7 @@ public class AdminUserApiImpl implements AdminUserApi {
             return;
         }
         // 获得岗位信息
-        List<SysUser> users = userMapper.selectBatchIds(ids);
+        List<SysUser> users = userService.selectBatchIds(ids);
         Map<Long, SysUser> userMap = CollectionUtils.convertMap(users, SysUser::getUserId);
         // 校验
         ids.forEach(id -> {

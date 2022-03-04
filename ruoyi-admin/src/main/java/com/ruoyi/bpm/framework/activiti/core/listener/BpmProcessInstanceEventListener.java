@@ -46,6 +46,7 @@ public class BpmProcessInstanceEventListener<T extends RuntimeEvent<?, ?>>
             return;
         }
         // 完成时，更新拓展表为已完成
+        //TODO 如果审判流程直接通过会报错，processInstance为null
         if (event.getEventType() == ProcessRuntimeEvent.ProcessEvents.PROCESS_COMPLETED) {
             processInstanceService.updateProcessInstanceExtComplete(event.getEntity());
             return;

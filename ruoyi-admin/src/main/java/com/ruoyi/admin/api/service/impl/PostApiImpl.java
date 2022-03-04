@@ -1,10 +1,9 @@
 package com.ruoyi.admin.api.service.impl;
 
 import cn.hutool.core.collection.CollUtil;
-import com.ruoyi.admin.api.mapper.PostMapper;
 import com.ruoyi.admin.api.service.PostApi;
 import com.ruoyi.admin.domain.SysPost;
-import com.ruoyi.admin.domain.server.Sys;
+import com.ruoyi.admin.mapper.SysPostMapper;
 import com.ruoyi.common.enums.CommonStatusEnum;
 import com.ruoyi.common.exception.ServiceException;
 import org.springframework.stereotype.Service;
@@ -25,7 +24,7 @@ import static com.ruoyi.common.utils.collection.CollectionUtils.convertMap;
 public class PostApiImpl implements PostApi {
 
     @Resource
-    private PostMapper postMapper;
+    private SysPostMapper postMapper;
 
 
     @Override

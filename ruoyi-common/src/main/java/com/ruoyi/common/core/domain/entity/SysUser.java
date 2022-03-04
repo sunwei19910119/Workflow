@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import javax.validation.constraints.*;
+
+import com.baomidou.mybatisplus.annotation.TableId;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -59,8 +61,8 @@ public class SysUser extends BaseEntity
     private String password;
 
     /** 盐加密 */
-    @JsonIgnore
-    private String salt;
+//    @JsonIgnore
+//    private String salt;
 
     /** 帐号状态（0正常 1停用） */
     @Excel(name = "帐号状态", readConverterExp = "0=正常,1=停用")
@@ -217,15 +219,15 @@ public class SysUser extends BaseEntity
         this.password = password;
     }
 
-    public String getSalt()
-    {
-        return salt;
-    }
+//    public String getSalt()
+//    {
+//        return salt;
+//    }
 
-    public void setSalt(String salt)
-    {
-        this.salt = salt;
-    }
+//    public void setSalt(String salt)
+//    {
+//        this.salt = salt;
+//    }
 
     public String getStatus()
     {
@@ -329,7 +331,7 @@ public class SysUser extends BaseEntity
             .append("sex", getSex())
             .append("avatar", getAvatar())
             .append("password", getPassword())
-            .append("salt", getSalt())
+//            .append("salt", getSalt())
             .append("status", getStatus())
             .append("delFlag", getDelFlag())
             .append("loginIp", getLoginIp())

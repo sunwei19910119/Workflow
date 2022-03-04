@@ -24,6 +24,7 @@ import org.springframework.util.CollectionUtils;
 
 import javax.validation.Validator;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -557,4 +558,21 @@ public class SysUserServiceImpl implements ISysUserService
         }
         return successMsg.toString();
     }
+
+    @Override
+    public List<SysUser> selectListByDeptIds(Collection<Long> deptIds) {
+        return userMapper.selectListByDeptIds(deptIds);
+    }
+
+    @Override
+    public List<SysUser> selectListByPostIds(Collection<Long> postIds) {
+        return userMapper.selectListByPostIds(postIds);
+    }
+
+    @Override
+    public List<SysUser> selectBatchIds(Collection<Long> userIds) {
+        return userMapper.selectBatchIds(userIds);
+    }
+
+
 }
