@@ -4,6 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.admin.api.convert.UserConvert;
+import com.ruoyi.admin.api.domain.UserSimpleRespVO;
+import com.ruoyi.common.enums.CommonStatusEnum;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -234,5 +239,20 @@ public class SysUserController extends BaseController
         userService.checkUserDataScope(userId);
         userService.insertUserAuth(userId, roleIds);
         return success();
+    }
+
+    /**
+     * @author: SunWei
+     * @date: 2022/3/7 16:34
+     * @param: []
+     * @return: com.ruoyi.common.pojo.CommonResult<java.util.List<UserSimpleRespVO>>
+     * @description: 获取用户精简信息列表
+     */
+    @GetMapping("/list-all-simple")
+    public CommonResult<List<UserSimpleRespVO>> getSimpleUsers() {
+        // 获用户门列表，只要开启状态的
+        List<SysUser> list = userService.getUsersByStatus(CommonStatusEnum.ENABLE.getStatus());
+        // 排序后，返回给前端
+        return CommonResult.success(UserConvert.INSTANCE.converts(list));
     }
 }

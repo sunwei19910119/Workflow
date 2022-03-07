@@ -37,7 +37,7 @@ public class DeptApiImpl implements DeptApi {
             return Collections.emptyList();
         }
         List<SysDept> depts = deptService.selectBatchIds(ids);
-        return DeptConvert.INSTANCE.convertList03(depts);
+        return DeptConvert.INSTANCE.convert03s(depts);
     }
 
     @Override
@@ -67,7 +67,13 @@ public class DeptApiImpl implements DeptApi {
         }
         List<SysDept> list = deptService.selectBatchIds(ids);
         Map<Long, SysDept> depts = CollectionUtils.convertMap(list, SysDept::getDeptId);
-        return DeptConvert.INSTANCE.convertMap(depts);
+        Map<Long,DeptRespDTO> deptMap = new HashMap<>();
+        for ( SysDept dept: depts.values()){
+            DeptRespDTO deptRespDTO =  new DeptRespDTO();
+            deptRespDTO.convert(dept);
+            deptMap.put(dept.getDeptId(), deptRespDTO);
+        }
+        return deptMap;
     }
 
 }

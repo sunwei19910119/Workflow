@@ -37,7 +37,7 @@ public class AdminUserApiImpl implements AdminUserApi {
             return Collections.emptyList();
         }
         List<SysUser> users = userService.selectListByDeptIds(deptIds);
-        return UserConvert.INSTANCE.convertList4(users);
+        return UserConvert.INSTANCE.convert4s(users);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class AdminUserApiImpl implements AdminUserApi {
         // 过滤不符合条件的
         //TODO 待校验
         List<SysUser> users = userService.selectListByPostIds(postIds);
-        return UserConvert.INSTANCE.convertList4(users);
+        return UserConvert.INSTANCE.convert4s(users);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.ruoyi.admin.api.domain;
 
+import com.ruoyi.common.core.domain.entity.SysDept;
 import com.ruoyi.common.enums.CommonStatusEnum;
 import lombok.Data;
 
@@ -33,5 +34,13 @@ public class DeptRespDTO {
      * 枚举 {@link CommonStatusEnum}
      */
     private Integer status;
+
+    public void convert(SysDept dept) {
+        id = dept.getDeptId();
+        name = dept.getDeptName();
+        parentId = dept.getParentId();
+        leaderUserId = dept.getLeaderUserId();
+        status = Integer.valueOf(dept.getStatus());
+    }
 
 }

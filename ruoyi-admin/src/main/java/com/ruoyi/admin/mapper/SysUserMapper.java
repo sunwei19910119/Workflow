@@ -139,5 +139,6 @@ public interface SysUserMapper
 
     List<SysUser> selectBatchIds(Collection<Long> userIds);
 
+    List<SysUser> selectListByStatus(Integer status);
 
 }

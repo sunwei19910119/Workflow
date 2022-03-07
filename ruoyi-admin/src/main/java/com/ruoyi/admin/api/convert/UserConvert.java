@@ -1,6 +1,7 @@
 package com.ruoyi.admin.api.convert;
 
 import com.ruoyi.admin.api.domain.AdminUserRespDTO;
+import com.ruoyi.admin.api.domain.UserSimpleRespVO;
 import com.ruoyi.common.core.domain.entity.SysUser;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -26,8 +27,13 @@ public interface UserConvert {
             @Mapping(source = "userId",target = "id"),
             @Mapping(source = "nickName",target = "nickname")
     })
-    List<AdminUserRespDTO> convertList4(List<SysUser> users);
+    UserSimpleRespVO convert(SysUser bean);
+
+    List<AdminUserRespDTO> convert4s(List<SysUser> users);
 
     Map<Long, AdminUserRespDTO> convertMap4(Map<Long, SysUser> map);
+
+    //循环调用convert方法
+    List<UserSimpleRespVO> converts(List<SysUser> list);
 
 }

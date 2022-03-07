@@ -218,5 +218,5 @@ public interface ISysUserService
     public List<SysUser> selectBatchIds(Collection<Long> userIds);
 
 
-
+    List<SysUser> getUsersByStatus(Integer status);
 }

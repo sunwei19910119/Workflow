@@ -21,17 +21,7 @@ public interface DeptConvert {
     })
     DeptRespDTO convert03(SysDept bean);
 
-
-    @Mappings({
-            @Mapping(source = "deptId",target = "id"),
-            @Mapping(source = "deptName",target = "name")
-    })
-    List<DeptRespDTO> convertList03(List<SysDept> list);
-
-    @Mappings({
-            @Mapping(source = "deptId",target = "id"),
-            @Mapping(source = "deptName",target = "name")
-    })
-    Map<Long, DeptRespDTO> convertMap(Map<Long, SysDept> map);
+    //循环调用convert03方法
+    List<DeptRespDTO> convert03s(List<SysDept> list);
 
 }

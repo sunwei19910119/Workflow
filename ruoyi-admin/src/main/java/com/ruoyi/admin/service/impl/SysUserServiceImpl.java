@@ -574,5 +574,9 @@ public class SysUserServiceImpl implements ISysUserService
         return userMapper.selectBatchIds(userIds);
     }
 
+    @Override
+    public List<SysUser>  getUsersByStatus(Integer status) {
+        return userMapper.selectListByStatus(status);
+    }
 
 }
