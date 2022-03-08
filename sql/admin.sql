@@ -516,6 +516,7 @@ INSERT INTO `sys_dict_type` VALUES (14, '流程的表单类型', 'bpm_model_form
 INSERT INTO `sys_dict_type` VALUES (15, '任务分配规则的类型', 'bpm_task_assign_rule_type', '0', '', NULL, '', NULL, '任务分配规则的类型');
 INSERT INTO `sys_dict_type` VALUES (16, '任务分配自定义脚本', 'bpm_task_assign_script', '0', '', NULL, '', NULL, '任务分配自定义脚本');
 INSERT INTO `sys_dict_type` VALUES (17, '角色类型', 'system_role_type', '0', '', NULL, '', NULL, '角色类型');
+INSERT INTO `sys_dict_type` VALUES (18, '系统状态', 'common_status', '0', '', NULL, '', NULL, '系统状态');
 
 
 -- ----------------------------
@@ -592,6 +593,8 @@ INSERT INTO `sys_dict_data` VALUES (1141, 22, '岗位', '22', 'bpm_task_assign_r
 INSERT INTO `sys_dict_data` VALUES (1142, 10, '流程发起人', '10', 'bpm_task_assign_script', NULL, NULL, 'N', '0', '', NULL, '', NULL, '任务分配自定义脚本 - 流程发起人');
 INSERT INTO `sys_dict_data` VALUES (1143, 20, '流程发起人的一级领导', '20', 'bpm_task_assign_script', NULL, NULL, 'N', '0', '', NULL, '', NULL, '任务分配自定义脚本 - 流程发起人的一级领导');
 INSERT INTO `sys_dict_data` VALUES (1144, 21, '流程发起人的二级领导', '21', 'bpm_task_assign_script', NULL, NULL, 'N', '0', '', NULL, '', NULL, '任务分配自定义脚本 - 流程发起人的二级领导');
+INSERT INTO `sys_dict_data` VALUES (1145, 1, '开启', '0', 'common_status', NULL, 'primary', 'N', '0', '', NULL, '', NULL, '开启状态');
+INSERT INTO `sys_dict_data` VALUES (1146, 2, '关闭', '1', 'common_status', NULL, 'info', 'N', '0', '', NULL, '', NULL, '关闭状态');
 
 
 -- ----------------------------

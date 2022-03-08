@@ -96,4 +96,5 @@ public interface ISysDictTypeService
      * @return 结果
      */
     public String checkDictTypeUnique(SysDictType dictType);
+
 }

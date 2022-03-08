@@ -120,5 +120,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  			sysdate()
  		)
 	</insert>
-	
+
+	<select id="selectList" resultMap="SysDictDataResult">
+		select * from sys_dict_data where status='0' order by dict_sort asc;
+	</select>
 </mapper> 

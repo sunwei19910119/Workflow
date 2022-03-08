@@ -3,6 +3,10 @@ package com.ruoyi.admin.controller.system;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.admin.api.convert.DictDataConvert;
+import com.ruoyi.admin.api.domain.DictDataSimpleRespVO;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -118,4 +122,14 @@ public class SysDictDataController extends BaseController
         dictDataService.deleteDictDataByIds(dictCodes);
         return success();
     }
+
+
+    @GetMapping("/list-all-simple")
+    @ApiOperation(value = "获得全部字典数据列表", notes = "一般用于管理后台缓存字典数据在本地")
+    // 无需添加权限认证，因为前端全局都需要
+    public CommonResult<List<DictDataSimpleRespVO>> getSimpleDictDatas() {
+        List<SysDictData> list = dictDataService.getDictDatas();
+        return CommonResult.success(DictDataConvert.INSTANCE.converts(list));
+    }
+
 }

@@ -17,10 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
 import javax.annotation.Resource;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 动态表单 Service 实现类
@@ -90,23 +87,23 @@ public class BpmFormServiceImpl implements BpmFormService {
     }
 
     /**
-     * 校验 Field，避免 field 重复
-     *
-     * @param fields field 数组
+     * @author: SunWei
+     * @date: 2022/3/8 15:58
+     * @param:
+     * @return:
+     * @description: 校验 Field，避免 field 重复
      */
     private void checkFields(List<String> fields) {
-        Map<String, String> fieldMap = new HashMap<>(); // key 是 vModel，value 是 label
+        Set<String> fieldNames = new HashSet<>();
         for (String field : fields) {
             BpmFormFieldRespDTO fieldDTO = JsonUtils.parseObject(field, BpmFormFieldRespDTO.class);
-            Assert.notNull(fieldDTO);
-            String oldLabel = fieldMap.put(fieldDTO.getVModel(), fieldDTO.getLabel());
-            // 如果不存在，则直接返回
-            if (oldLabel == null) {
-                continue;
-            }
-            // 如果存在，则报错
-            throw ServiceExceptionUtil.exception(ErrorCodeConstants.FORM_FIELD_REPEAT, oldLabel, fieldDTO.getLabel(), fieldDTO.getVModel());
+            fieldNames.add(fieldDTO.getVModel());
         }
+        if (fieldNames.size() != fields.size()){
+            // 如果存在重复的字段名字，则报错
+            throw ServiceExceptionUtil.exception(ErrorCodeConstants.FORM_FIELD_REPEAT);
+        }
+
     }
 
 }

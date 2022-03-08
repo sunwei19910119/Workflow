@@ -3,6 +3,7 @@ package com.ruoyi.common.utils.json;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -26,7 +27,10 @@ public class JsonUtils {
     private static ObjectMapper objectMapper = new ObjectMapper();
 
     static {
+        //空对象不报错
         objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+        //找不到对应字段不报错
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
     }
 
     /**

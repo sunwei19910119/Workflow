@@ -109,4 +109,11 @@ public class SysDictDataServiceImpl implements ISysDictDataService
         }
         return row;
     }
+
+
+
+    @Override
+    public List<SysDictData> getDictDatas() {
+        return dictDataMapper.selectList();
+    }
 }

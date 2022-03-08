@@ -58,4 +58,12 @@ public interface ISysDictDataService
      * @return 结果
      */
     public int updateDictData(SysDictData dictData);
+
+
+    /**
+     * 获得字典数据列表
+     *
+     * @return 字典数据全列表
+     */
+    List<SysDictData> getDictDatas();
 }
