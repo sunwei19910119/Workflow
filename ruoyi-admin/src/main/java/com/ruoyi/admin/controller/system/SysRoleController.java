@@ -3,6 +3,7 @@ package com.ruoyi.admin.controller.system;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ruoyi.admin.domain.vo.RoleSimpleVO;
 import com.ruoyi.admin.security.service.SysPermissionService;
 import com.ruoyi.admin.security.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +59,13 @@ public class SysRoleController extends BaseController
     {
         startPage();
         List<SysRole> list = roleService.selectRoleList(role);
+        return getDataTable(list);
+    }
+
+    @GetMapping("/list-all-simple")
+    public CommonResult<TableDataInfo> listAllSimple()
+    {
+        List<RoleSimpleVO> list = roleService.selectRoleSimpleList();
         return getDataTable(list);
     }
 

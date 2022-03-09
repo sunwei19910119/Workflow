@@ -1,5 +1,6 @@
 package com.ruoyi.admin.service;
 
+import com.ruoyi.admin.domain.vo.DeptSimpleVO;
 import com.ruoyi.common.core.domain.TreeSelect;
 import com.ruoyi.common.core.domain.entity.SysDept;
 
@@ -117,4 +118,6 @@ public interface ISysDeptService
     public int deleteDeptById(Long deptId);
 
     List<SysDept> selectBatchIds(Collection<Long> ids);
+
+    List<DeptSimpleVO> selectDeptSimpleList();
 }

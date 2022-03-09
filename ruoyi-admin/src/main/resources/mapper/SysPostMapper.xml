@@ -16,7 +16,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="updateTime"    column="update_time"   />
 		<result property="remark"        column="remark"        />
 	</resultMap>
-	
+
+	<resultMap type="PostSimpleVO" id="SysPostSimpleResult">
+		<id     property="postId"        column="post_id"       />
+		<result property="postName"      column="post_name"     />
+	</resultMap>
+
 	<sql id="selectPostVo">
         select post_id, post_code, post_name, post_sort, status, create_by, create_time, remark 
 		from sys_post
@@ -125,4 +130,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{postId}
 		</foreach>
 	</select>
+
+	<select id="selectPostSimpleList" parameterType="Long" resultMap="SysPostSimpleResult">
+		select post_id,post_name from sys_post where status = '0' order by post_sort asc;
+	</select>
+
 </mapper> 

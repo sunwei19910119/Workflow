@@ -20,6 +20,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="updateTime"         column="update_time"           />
 		<result property="remark"             column="remark"                />
 	</resultMap>
+
+	<resultMap type="com.ruoyi.admin.domain.vo.RoleSimpleVO" id="SysRoleSimpleResult">
+		<id     property="roleId"             column="role_id"               />
+		<result property="roleName"           column="role_name"             />
+	</resultMap>
 	
 	<sql id="selectRoleVo">
 	    select distinct r.role_id, r.role_name, r.role_key, r.role_sort, r.data_scope, r.menu_check_strictly, r.dept_check_strictly,
@@ -155,5 +160,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<foreach collection="collection" item="roleId"  open="(" separator="," close=")">
 			#{roleId}
 		</foreach>
+	</select>
+
+	<select id="selectRoleSimpleList" resultMap="SysRoleSimpleResult">
+		select role_id,role_name from sys_role where status=0 and del_flag=0 order by role_sort asc;
 	</select>
 </mapper> 

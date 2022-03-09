@@ -3,6 +3,10 @@ package com.ruoyi.admin.controller.system;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+
+import com.ruoyi.admin.domain.vo.DeptSimpleVO;
+import com.ruoyi.admin.domain.vo.RoleSimpleVO;
+import com.ruoyi.common.core.page.TableDataInfo;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -162,5 +166,13 @@ public class SysDeptController extends BaseController
         }
         deptService.checkDeptDataScope(deptId);
         return toAjax(deptService.deleteDeptById(deptId));
+    }
+
+
+    @GetMapping("/list-all-simple")
+    public CommonResult<TableDataInfo> listAllSimple()
+    {
+        List<DeptSimpleVO> list = deptService.selectDeptSimpleList();
+        return getDataTable(list);
     }
 }

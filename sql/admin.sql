@@ -517,7 +517,7 @@ INSERT INTO `sys_dict_type` VALUES (15, '任务分配规则的类型', 'bpm_task
 INSERT INTO `sys_dict_type` VALUES (16, '任务分配自定义脚本', 'bpm_task_assign_script', '0', '', NULL, '', NULL, '任务分配自定义脚本');
 INSERT INTO `sys_dict_type` VALUES (17, '角色类型', 'system_role_type', '0', '', NULL, '', NULL, '角色类型');
 INSERT INTO `sys_dict_type` VALUES (18, '系统状态', 'common_status', '0', '', NULL, '', NULL, '系统状态');
-
+INSERT INTO `sys_dict_type` VALUES (19, 'OA 请假类型', 'bpm_oa_leave_type', '0', '', NULL, '', NULL, 'OA 请假类型');
 
 -- ----------------------------
 -- 12、字典数据表

@@ -1,5 +1,6 @@
 package com.ruoyi.admin.service.impl;
 
+import com.ruoyi.admin.domain.vo.PostSimpleVO;
 import com.ruoyi.common.constant.UserConstants;
 import com.ruoyi.common.exception.ServiceException;
 import com.ruoyi.common.utils.StringUtils;
@@ -176,4 +177,10 @@ public class SysPostServiceImpl implements ISysPostService
     {
         return postMapper.updatePost(post);
     }
+
+    @Override
+    public List<PostSimpleVO> selectPostSimpleList(){
+        return postMapper.selectPostSimpleList();
+    }
+
 }

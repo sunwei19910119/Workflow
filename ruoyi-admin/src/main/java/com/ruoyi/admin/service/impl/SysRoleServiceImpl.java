@@ -1,5 +1,6 @@
 package com.ruoyi.admin.service.impl;
 
+import com.ruoyi.admin.domain.vo.RoleSimpleVO;
 import com.ruoyi.common.annotation.DataScope;
 import com.ruoyi.common.constant.UserConstants;
 import com.ruoyi.common.core.domain.entity.SysRole;
@@ -417,5 +418,11 @@ public class SysRoleServiceImpl implements ISysRoleService
             list.add(ur);
         }
         return userRoleMapper.batchUserRole(list);
+    }
+
+
+    @Override
+    public List<RoleSimpleVO> selectRoleSimpleList(){
+        return roleMapper.selectRoleSimpleList();
     }
 }

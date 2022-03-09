@@ -1,6 +1,7 @@
 package com.ruoyi.admin.mapper;
 
 import com.ruoyi.admin.domain.SysPost;
+import com.ruoyi.admin.domain.vo.PostSimpleVO;
 
 import java.util.Collection;
 import java.util.List;
@@ -100,4 +101,7 @@ public interface SysPostMapper
     public SysPost checkPostCodeUnique(String postCode);
 
     List<SysPost> selectBatchIds(Collection<Long> ids);
+
+    List<PostSimpleVO> selectPostSimpleList();
+
 }

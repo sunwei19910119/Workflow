@@ -1,5 +1,6 @@
 package com.ruoyi.admin.mapper;
 
+import com.ruoyi.admin.domain.vo.RoleSimpleVO;
 import com.ruoyi.common.core.domain.entity.SysRole;
 
 import java.util.Collection;
@@ -108,4 +109,6 @@ public interface SysRoleMapper
     public int deleteRoleByIds(Long[] roleIds);
 
     List<SysRole> selectBatchIds(Collection<Long> ids);
+
+    List<RoleSimpleVO> selectRoleSimpleList();
 }

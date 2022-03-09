@@ -1,6 +1,7 @@
 package com.ruoyi.admin.service;
 
 import com.ruoyi.admin.domain.SysPost;
+import com.ruoyi.admin.domain.vo.PostSimpleVO;
 
 import java.util.List;
 
@@ -97,4 +98,6 @@ public interface ISysPostService
      * @return 结果
      */
     public int updatePost(SysPost post);
+
+    List<PostSimpleVO> selectPostSimpleList();
 }

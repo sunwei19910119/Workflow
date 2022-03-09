@@ -2,6 +2,9 @@ package com.ruoyi.admin.controller.system;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
+
+import com.ruoyi.admin.domain.vo.DeptSimpleVO;
+import com.ruoyi.admin.domain.vo.PostSimpleVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
@@ -126,5 +129,12 @@ public class SysPostController extends BaseController
     {
         List<SysPost> posts = postService.selectPostAll();
         return CommonResult.success(posts);
+    }
+
+    @GetMapping("/list-all-simple")
+    public CommonResult<TableDataInfo> listAllSimple()
+    {
+        List<PostSimpleVO> list = postService.selectPostSimpleList();
+        return getDataTable(list);
     }
 }

@@ -53,7 +53,7 @@ public class BpmProcessDefinitionController {
     @PreAuthorize("@ss.hasPermi('bpm:process-definition:query')")
     public CommonResult<String> getProcessDefinitionBpmnXML(@RequestParam("id") String id) {
         String bpmnXML = bpmDefinitionService.getProcessDefinitionBpmnXML(id);
-        return success(bpmnXML);
+        return success("操作成功",bpmnXML);
     }
 
 }

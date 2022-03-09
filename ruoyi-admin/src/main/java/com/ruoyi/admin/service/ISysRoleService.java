@@ -1,5 +1,6 @@
 package com.ruoyi.admin.service;
 
+import com.ruoyi.admin.domain.vo.RoleSimpleVO;
 import com.ruoyi.common.core.domain.entity.SysRole;
 import com.ruoyi.admin.domain.SysUserRole;
 
@@ -172,4 +173,7 @@ public interface ISysRoleService
      * @return 结果
      */
     public int insertAuthUsers(Long roleId, Long[] userIds);
+
+
+    List<RoleSimpleVO> selectRoleSimpleList();
 }

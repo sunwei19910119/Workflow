@@ -1,5 +1,6 @@
 package com.ruoyi.admin.service.impl;
 
+import com.ruoyi.admin.domain.vo.DeptSimpleVO;
 import com.ruoyi.common.annotation.DataScope;
 import com.ruoyi.common.constant.UserConstants;
 import com.ruoyi.common.core.domain.TreeSelect;
@@ -334,5 +335,11 @@ public class SysDeptServiceImpl implements ISysDeptService
     @Override
     public List<SysDept> selectBatchIds(Collection<Long> ids) {
         return deptMapper.selectBatchIds(ids);
+    }
+
+    @Override
+    public List<DeptSimpleVO> selectDeptSimpleList(){
+        return deptMapper.selectDeptSimpleList();
+
     }
 }
